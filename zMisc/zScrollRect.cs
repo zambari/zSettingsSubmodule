@@ -6,6 +6,7 @@ using UnityEngine;
 public class zScrollRect : ScrollRect, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
 public bool enableDragging;
+#if UNITY_EDITOR
     protected override void OnValidate()
     {
         base.OnValidate();
@@ -13,6 +14,8 @@ public bool enableDragging;
 		// if (enableScroll)
 
     }
+    #endif
+    
     [HideInInspector]
     public bool reversedScroll; //not implemented
 	public bool reverseMouseScroll;
@@ -35,7 +38,7 @@ public bool enableDragging;
         }
          if (content == null)
         {
-            var t = transform.FindChild("CONTENT");
+            var t = transform.Find("CONTENT");
             if (t != null)
        
                 content = t.gameObject.GetComponent<RectTransform>();

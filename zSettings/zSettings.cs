@@ -114,7 +114,7 @@ public class zSettings : zNodeController
             tabTemplate=GetComponentInChildren<SettingsTab>();
         if (autoSaveToggle == null)
         {
-            var t = transform.FindChild("SaveSettingsToggle");
+            var t = transform.Find("SaveSettingsToggle");
             if (t != null)
             {
                 autoSaveToggle = t.GetComponent<Toggle>();
